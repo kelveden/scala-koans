@@ -16,8 +16,8 @@ class AboutImplicits extends KoanSuite with ShouldMatchers {
 
     implicit def thisMethodNameIsIrrelevant(value: Int) = new KoanIntWrapper(value)
 
-    19.isOdd should be(__)
-    20.isOdd should be(__)
+    19.isOdd should be(true)
+    20.isOdd should be(false)
   }
 
   koan("""Implicits rules can be imported into your scope with an import""") {
@@ -34,8 +34,8 @@ class AboutImplicits extends KoanSuite with ShouldMatchers {
 
     import MyPredef._
     //imported implicits come into effect within this scope
-    19.isOdd should be(__)
-    20.isOdd should be(__)
+    19.isOdd should be(true)
+    20.isOdd should be(false)
   }
 
   koan("""Implicits can be used to automatically convert one type to another""") {
