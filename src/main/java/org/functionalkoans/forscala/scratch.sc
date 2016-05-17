@@ -1,9 +1,6 @@
-var incrementer = 3
+import java.math.BigInteger
+implicit def Int2BigIntegerConvert(value: Int) = new BigInteger(value.toString)
 
-val closure = (x:Int) => x + incrementer
+def add(a: BigInteger, b: BigInteger) = a.add(b)
 
-closure(3)
-
-incrementer = 2
-
-closure(3)
+add(3,42)

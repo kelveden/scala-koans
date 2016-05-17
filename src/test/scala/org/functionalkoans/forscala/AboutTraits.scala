@@ -22,7 +22,7 @@ class AboutTraits extends KoanSuite {
 
     val evt = Event("Moose Stampede")
     val myListener = new MyListener
-    myListener.listen(evt) should be (__)
+    myListener.listen(evt) should be ("An unfortunate moose stampede occurred")
   }
 
   koan("A class can only \'extend\' from one class or trait, any subsequent extension should use the keyword \'with\'") {
@@ -46,7 +46,7 @@ class AboutTraits extends KoanSuite {
 
     val evt = Event("Woodchuck Stampede")
     val myListener = new MyListener
-    myListener.listen(evt) should be (__)
+    myListener.listen(evt) should be ("An unfortunate woodchuck stampede occurred")
   }
 
   koan("Traits are polymorphic. Any type can be referred to by another type if related by extension") {
@@ -67,10 +67,10 @@ class AboutTraits extends KoanSuite {
 
     val myListener = new MyListener
 
-    myListener.isInstanceOf[MyListener] should be(__)
-    myListener.isInstanceOf[EventListener] should be(__)
-    myListener.isInstanceOf[Any] should be(__)
-    myListener.isInstanceOf[AnyRef] should be(__)
+    myListener.isInstanceOf[MyListener] should be(true)
+    myListener.isInstanceOf[EventListener] should be(true)
+    myListener.isInstanceOf[Any] should be(true)
+    myListener.isInstanceOf[AnyRef] should be(true)
   }
 
   koan("Traits can have concrete implementations that can be mixed into concrete classes with it's own state") {
@@ -102,8 +102,8 @@ class AboutTraits extends KoanSuite {
     val baker = new Baker
     baker.bake()
 
-    welder.logCache.size should be(__)
-    baker.logCache.size should be(__)
+    welder.logCache.size should be(1)
+    baker.logCache.size should be(1)
   }
 
   koan("""Traits can also be mixed during instantiation after the fact!
@@ -128,7 +128,7 @@ class AboutTraits extends KoanSuite {
     einstein.discover("Relativity!")
     einstein.log("Although it is utmost of importance that this does not fall into the wrong hands")
 
-    einstein.log.size should be (__)
+    einstein.log.size should be (1)
   }
 
   //Credit for the next set koans: http://www.artima.com/scalazine/articles/stackable_trait_pattern.html
